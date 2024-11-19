@@ -1,0 +1,29 @@
+<p>
+    <a routerLink="/Productos/Crear" class="btn btn-primary">Agregar nuevo producto</a>
+</p>
+
+<table class="table table-striped table-hover table-bordered shadow-sm rounded">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Nombre del producto</th>
+      <th>Stock</th>
+      <th>Precio</th>
+      <th>Categoría</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of listaProductos">
+      <td>{{ producto.id }}</td>
+      <td>{{ producto.nombreProducto }}</td>
+      <td>{{ producto.stock }}</td>
+      <td>{{ producto.precio }}</td>
+      <td>{{ obtenerNombreCategoria(producto.idCategoria) }}</td>
+      <td>
+        <a routerLink="/Productos/Actualizar/{{producto.id}}" class="btn btn-warning me-2">Editar</a>
+        <a routerLink="/Productos/Eliminar/{{producto.id}}" class="btn btn-danger me-auto">Eliminar</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

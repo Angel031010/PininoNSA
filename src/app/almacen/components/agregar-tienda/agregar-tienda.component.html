@@ -1,0 +1,35 @@
+<div class="container">
+    <form (submit)="guardarTienda()" [formGroup]="form">
+        <div class="col-4">
+            <label for="nombreTienda">Ingrese el nombre de la tienda</label>
+            <input type="text" class="form-control" id="nombreTienda" formControlName="nombreTienda">
+        </div>
+        <div class="col-4 mt-2">
+            <label for="direccion">Ingrese la dirección de la tienda</label>
+            <input type="text" class="form-control" id="direccion" formControlName="direccion">
+        </div>
+        <div class="col-4 mt-2">
+            <label for="latitud">Ingrese la latitud</label>
+            <input type="number" class="form-control" id="latitud" formControlName="latitud">
+        </div>
+        <div class="col-4 mt-2">
+            <label for="longitud">Ingrese la longitud</label>
+            <input type="number" class="form-control" id="longitud" formControlName="longitud">
+        </div>
+        <div class="col-4 mt-2">
+            <label for="telefono">Ingrese el teléfono de la tienda</label>
+            <input type="text" class="form-control" id="telefono" formControlName="telefono">
+        </div>
+        <div class="col-4 mt-2">
+            <label for="idEncargado">Seleccione el encargado de la tienda</label>
+            <select class="form-control" id="idEncargado" formControlName="idEncargado">
+                <option value="">Seleccione un encargado</option>
+                <!-- Opciones dinámicas cargadas desde listaEncargadosTienda -->
+                <option *ngFor="let encargado of listaEncargadosTienda" [value]="encargado.id">{{ encargado.nombre }}</option>
+            </select>
+        </div>
+        <div class="mt-2">
+            <button type="submit" class="btn btn-success" [disabled]="!form.valid">Guardar nueva tienda</button>
+        </div>
+    </form>
+</div>

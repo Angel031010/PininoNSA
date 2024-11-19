@@ -1,0 +1,49 @@
+<!--
+<p>main-page works!</p>
+<ol>
+  <li *ngFor="let producto of listaProductos">
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{producto.nombre}}</h5>
+        <p class="card-text">Cantidad: {{producto.stock}}</p>
+
+        <p class="card-text" *ngIf="producto.precioOferta! < producto.precio">
+          Precio: <s>{{producto.precio}}</s> {{producto.precioOferta}}
+        </p>
+
+        <p class="card-text" *ngIf="!producto.precioOferta">
+          Precio: {{producto.precio}}
+        </p>
+
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </li>
+</ol>  
+<app-almacen-producto *ngFor="let p of listaProductos" [producto]="p"></app-almacen-producto>
+-->
+
+<p>
+  <a routerLink="/Categorias/Crear" class="btn btn-primary">Agregar nuevo</a>
+</p>
+
+<table class="table table-striped table-hover table-bordered shadow-sm rounded">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let categoria of listaCategorias">
+      <td>{{ categoria.id }}</td>
+      <td>{{ categoria.nombreCategoria }}</td>
+      <td>
+        <a routerLink="/Categorias/Actualizar/{{categoria.id}}" class="btn btn-warning me-2" >Editar</a>
+        <a routerLink="/Categorias/Eliminar/{{categoria.id}}" class="btn btn-danger me-auto" >Eliminar</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

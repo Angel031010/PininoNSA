@@ -1,0 +1,32 @@
+<p>
+    <a routerLink="/EncargadosTienda/Crear" class="btn btn-primary">Agregar nuevo encargado</a>
+  </p>
+  
+  <table class="table table-striped table-hover table-bordered shadow-sm rounded">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre Completo</th>
+        <th>Teléfono</th>
+        <th>Correo</th>
+        <th>Usuario</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let encargado of listaEncargadoTiendas">
+        <td>{{ encargado.id }}</td>
+        <td>{{ encargado.nombre }} {{ encargado.apepat }} {{ encargado.apemat }}</td>
+        <td>{{ encargado.telefono }}</td>
+        <td>{{ encargado.correo }}</td>
+        <td>{{ encargado.usuario }}</td>
+        <td>{{ obtenerNombreRol(encargado.idRol) }}</td>
+        <td>
+          <a routerLink="/EncargadosTienda/Actualizar/{{encargado.id}}" class="btn btn-warning me-2">Editar</a>
+          <a routerLink="/EncargadosTienda/Eliminar/{{encargado.id}}" class="btn btn-danger me-auto">Eliminar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
